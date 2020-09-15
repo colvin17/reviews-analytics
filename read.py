@@ -20,7 +20,7 @@ for d in data:
 
 print('平均留言長度為 :', sum_len/len(data)) # len(data)為確認data清單裡共有幾筆留言
 
-#如何加上篩選條件
+# 如何加上篩選條件
 new = []
 for d in data:
     if len(d) < 100:
@@ -28,3 +28,17 @@ for d in data:
 print('共有', len(new), '筆留言字數小於100。')
 print(new[0])
 print(new[1])
+
+good = []
+for d in data:
+    if 'good' in d:
+        good.append(d)
+print('共有', len(good), '筆留言包含good')
+print(good[0])
+
+# 以下為條件篩選另一種寫法
+good = [d for d in data if 'good' in d]
+print(good)
+
+bad = ['bad' in d for d in data] # bad in d 只會判定為true or false, 所以這是將留言判定為有沒有'bad'。
+print(bad)
