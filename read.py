@@ -1,7 +1,7 @@
 data = []
 count = 0
 with open('reviews.txt', 'r') as f:
-    for line in f:
+    for line in f: # line是自取的變數，此變數用意是每次讀取一行留言。
         data.append(line)
         count +=1 # 即等同於 count = count +1
         if count % 1000 == 0: # %為求餘數用，即count/1000的餘數等於0
@@ -19,3 +19,12 @@ for d in data:
     sum_len = sum_len + len(d) # 每讀取一筆留言就加到總字數裡
 
 print('平均留言長度為 :', sum_len/len(data)) # len(data)為確認data清單裡共有幾筆留言
+
+#如何加上篩選條件
+new = []
+for d in data:
+    if len(d) < 100:
+        new.append(d)
+print('共有', len(new), '筆留言字數小於100。')
+print(new[0])
+print(new[1])
